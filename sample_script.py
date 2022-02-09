@@ -2,9 +2,13 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+option = webdriver.ChromeOptions()
+option.add_argument("--incognito")
+
 # init driver
-driver = webdriver.Chrome(executable_path='chromedriver.exe')
+driver = webdriver.Chrome(executable_path='chromedriver.exe', chrome_options=option)
 driver.maximize_window()
+
 
 # open the url
 driver.get('https://www.google.com/')
