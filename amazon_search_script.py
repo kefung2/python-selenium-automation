@@ -21,8 +21,8 @@ search.clear()
 search.send_keys('cancel order')
 search.send_keys(Keys.RETURN)
 
-expected_result = 'cancel order'
-actual_result = driver.find_element(By.XPATH, "//b").text
+expected_result = 'Cancel Items or Orders'
+actual_result = driver.find_element(By.XPATH, "//h1[text()='Cancel Items or Orders']").text
 print(actual_result)
 
 # verify
