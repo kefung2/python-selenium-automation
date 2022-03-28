@@ -34,13 +34,8 @@ def verify_landing_page(context, key_word):
 
 @when("Click on Cart Icon")
 def click_on_cart_icon(context):
-    cart = context.driver.find_element(*CART).click()
+    context.app.hw7.click_cart_icon()
 
 @then("Verifies Cart is Empty")
 def empty_cart(context):
-    expected_result = 'Your Amazon Cart is empty'
-    actual_result = context.driver.find_element(By.CSS_SELECTOR, ".sc-your-amazon-cart-is-empty").text
-
-    print("Test Success" if actual_result == expected_result else "Test Fail")
-
-    assert expected_result == actual_result, "Expected Result and Actual Result Don't Match"
+    context.app.hw7.verify_cart_isEmpty()

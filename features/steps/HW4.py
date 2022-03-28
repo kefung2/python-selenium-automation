@@ -9,31 +9,20 @@ BEST_SELLER_LINKS = (By.XPATH, "//a[contains(@href, '/ref=zg_bs_tab')]")
 
 @when('Search for {item}')
 def search_for(context, item):
-    search = context.driver.find_element(By.ID, 'twotabsearchtextbox')
-    search.clear()
-    search.send_keys(item)
-    sleep(1)
-    search.send_keys(Keys.RETURN)
+    context.app.hw7.search_for_item(item)
 
 @when('Click on item')
 def click_on_item(context):
-    item = context.driver.find_element(*PRICE)
-    # Question: Won't find_element(By.CSS_SELECTOR, ".a-price") be the same?
-    item.click()
+    context.app.hw7.click_on_item()
 
 @when('Add to cart')
 def add_to_cart(context):
-    context.driver.find_element(*ADD_TO_CART).click()
+    context.app.hw7.add_to_cart()
 
 @then('Verifies Cart has {num} item')
 def verifiy_cart_has_item(context, num):
-    sleep(1)
-    expected_result = num
-    actual_result = context.driver.find_element(By.ID, "nav-cart-count").text
 
-    print("Test Success" if actual_result == expected_result else "Test Fail")
-
-    assert expected_result == actual_result, "Expected Result and Actual Result Don't Match"
+    context.app.hw7.verify_cart(num)
 
 @then('Verify there are {x} item')
 def verify_num_of_element(context, x):

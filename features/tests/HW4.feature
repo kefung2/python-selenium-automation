@@ -8,7 +8,7 @@ Feature: # Enter feature name here
 
 
   Scenario: # Add any product into the cart, and make sure it’s there
-    Given Open Amazon page https://www.amazon.com/
+    Given Open Amazon page
     When Search for LEGO
     And Click on item
     And Add to cart
