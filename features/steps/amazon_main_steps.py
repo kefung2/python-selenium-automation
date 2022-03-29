@@ -4,12 +4,11 @@ from time import sleep
 
 @given('Open Amazon page')
 def open_page(context):
-    context.app.hw7.open_home_page()
+    context.app.open.open_main()
 
 @given('Open Amazon page {target}')
 def open_amazon(context, target):
-    context.driver.get(target)
-    sleep(1)
+    context.app.open.open_sub(target)
 
 @when('Click Amazon Orders link')
 def click_order(context):
